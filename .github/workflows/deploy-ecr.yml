@@ -153,8 +153,13 @@ jobs:
           echo "#### Main ECR Repositories:" >> $GITHUB_STEP_SUMMARY
           terraform output -json main_ecr_repositories | jq -r 'to_entries[] | "- **\(.key)**: `\(.value)`"' >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          echo "#### GitHub Actions Role ARN:" >> $GITHUB_STEP_SUMMARY
+          echo "#### Stub ECR Repositories:" >> $GITHUB_STEP_SUMMARY
+          echo "$(terraform output stub_ecr_repositories | wc -l | xargs) stub repositories created" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "#### GitHub Actions Role:" >> $GITHUB_STEP_SUMMARY
           echo "`$(terraform output -raw github_actions_role_arn)`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "🔒 **Note**: Account IDs are masked (***MASKED***) in outputs for security" >> $GITHUB_STEP_SUMMARY
 
   terraform-destroy:
     name: Terraform Destroy
