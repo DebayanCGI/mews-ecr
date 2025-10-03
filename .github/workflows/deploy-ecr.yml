@@ -75,7 +75,8 @@ jobs:
         id: plan
         run: |
           terraform plan \
-            -var-file="terraform.tfvars.${{ github.event.inputs.environment || 'dev' }}" \
+            -var-file="terraform.tfvars.github" \
+            -var="environment=${{ github.event.inputs.environment || 'dev' }}" \
             -out=tfplan \
             -detailed-exitcode
         continue-on-error: true
@@ -137,7 +138,8 @@ jobs:
       - name: Terraform Apply
         run: |
           terraform apply \
-            -var-file="terraform.tfvars.${{ github.event.inputs.environment || 'dev' }}" \
+            -var-file="terraform.tfvars.github" \
+            -var="environment=${{ github.event.inputs.environment || 'dev' }}" \
             -auto-approve
 
       - name: Output ECR Repository URLs
@@ -186,7 +188,8 @@ jobs:
       - name: Terraform Destroy
         run: |
           terraform destroy \
-            -var-file="terraform.tfvars.${{ github.event.inputs.environment || 'dev' }}" \
+            -var-file="terraform.tfvars.github" \
+            -var="environment=${{ github.event.inputs.environment || 'dev' }}" \
             -auto-approve
 
       - name: Cleanup Summary

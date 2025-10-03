@@ -1,0 +1,5 @@
+# GitHub Actions environment variables for ECR
+region             = "ap-southeast-2"
+environment        = "dev"
+github_repository  = "DebayanCGI/mews-ecr"
+# aws_profile is not set - GitHub Actions uses OIDC assumed role

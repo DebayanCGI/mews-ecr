@@ -23,5 +23,5 @@ data "aws_region" "current" {}
 
 provider "aws" {
   region  = var.region
-  profile = var.aws_profile
+  profile = var.aws_profile # Only used for local development, ignored in GitHub Actions
 }

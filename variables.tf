@@ -5,9 +5,9 @@ variable "region" {
 }
 
 variable "aws_profile" {
-  description = "AWS profile to use for authentication"
+  description = "AWS profile to use for local development (not used in GitHub Actions)"
   type        = string
-  default     = "cgi-telstra"
+  default     = null
 }
 
 variable "environment" {
