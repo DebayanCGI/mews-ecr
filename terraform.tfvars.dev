@@ -1,0 +1,5 @@
+# Development environment variables for ECR
+region             = "ap-southeast-2"
+aws_profile        = "cgi-telstra"
+environment        = "dev"
+github_repository  = "DebayanCGI/mews-ecr"
