@@ -6,10 +6,10 @@ output "main_ecr_repositories" {
   description = "URLs of main MEWS ECR repositories"
 }
 
-# GitHub Actions role ARN for CI/CD
+# GitHub Actions role ARN (managed centrally via github-oidc-terraform)
 output "github_actions_role_arn" {
-  value       = aws_iam_role.github_actions_ecr.arn
-  description = "ARN of the GitHub Actions IAM role for ECR management"
+  value       = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:role/mews-ecr-oidc-github-actions-role"
+  description = "ARN of the GitHub Actions IAM role for ECR management (centrally managed)"
 }
 
 # AWS Account and Region information

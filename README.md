@@ -76,6 +76,20 @@ Ensure your AWS profile is configured:
 aws configure --profile cgi-telstra
 ```
 
+### GitHub Secrets Configuration
+
+Before deploying via GitHub Actions, you need to configure the following repository secret:
+
+| Secret Name | Value | Description |
+|-------------|-------|-------------|
+| `AWS_ROLE_ARN` | `arn:aws:iam::876996579986:role/mews-ecr-oidc-github-actions-role` | OIDC role ARN for GitHub Actions |
+
+To add this secret:
+1. Go to your GitHub repository
+2. Navigate to Settings → Secrets and variables → Actions
+3. Click "New repository secret"
+4. Add the secret name and value as shown above
+
 ## Deployment
 
 ### GitHub Actions (Recommended)
@@ -154,6 +168,7 @@ After deployment, the following outputs are available:
 1. **Authentication Errors**
    - Ensure AWS profile is configured correctly
    - Verify OIDC provider trust relationship
+   - Check that `AWS_ROLE_ARN` secret is configured in GitHub repository
 
 2. **State Lock Issues**
    - Wait for concurrent operations to complete
