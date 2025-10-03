@@ -9,10 +9,10 @@ terraform {
   }
 
   backend "s3" {
-    bucket         = "mews-terraform-state-dev"
-    key            = "mews-ecr/dev/terraform.tfstate"
+    bucket         = "mews-ecr-oidc-terraform-state-production"
+    key            = "mews-ecr-oidc/production/terraform.tfstate"
     region         = "ap-southeast-2"
-    dynamodb_table = "mews-terraform-state-lock"
+    dynamodb_table = "mews-ecr-oidc-terraform-state-lock"
     encrypt        = true
   }
 }
