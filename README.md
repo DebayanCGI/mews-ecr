@@ -12,8 +12,9 @@ This project creates and manages the following ECR repositories:
 - `mews-es` - Elasticsearch service
 - `mysql57` - MySQL 5.7 database
 
-### Stub Application Repositories (15)
+### Stub Application Repositories (16)
 - `mews-bolt-on-stub`
+- `mews-cbd-stub`
 - `mews-diameter-stack-stub`
 - `mews-esa-stub`
 - `mews-inventory-ms-stub`

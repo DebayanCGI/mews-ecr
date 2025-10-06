@@ -213,10 +213,25 @@ resource "aws_ecr_repository" "mews_wtc_stub" {
   }
 }
 
+resource "aws_ecr_repository" "mews_cbd_stub" {
+  name                 = "mews-cbd-stub"
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+
+  tags = {
+    Name = "mews-cbd-stub"
+    CostCategoryTask = "uPair"
+  }
+}
+
 # Output all ECR repository URLs (account ID masked for security)
 output "stub_ecr_repositories" {
   value = {
     bolt_on_stub           = replace(aws_ecr_repository.mews_bolt_on_stub.repository_url, data.aws_caller_identity.current.account_id, "***MASKED***")
+    cbd_stub              = replace(aws_ecr_repository.mews_cbd_stub.repository_url, data.aws_caller_identity.current.account_id, "***MASKED***")
     diameter_stack_stub    = replace(aws_ecr_repository.mews_diameter_stack_stub.repository_url, data.aws_caller_identity.current.account_id, "***MASKED***")
     esa_stub              = replace(aws_ecr_repository.mews_esa_stub.repository_url, data.aws_caller_identity.current.account_id, "***MASKED***")
     inventory_ms_stub     = replace(aws_ecr_repository.mews_inventory_ms_stub.repository_url, data.aws_caller_identity.current.account_id, "***MASKED***")
