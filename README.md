@@ -82,7 +82,7 @@ Before deploying via GitHub Actions, you need to configure the following reposit
 
 | Secret Name | Value | Description |
 |-------------|-------|-------------|
-| `AWS_ROLE_ARN` | `arn:aws:iam::876996579986:role/mews-ecr-oidc-github-actions-role` | OIDC role ARN for GitHub Actions |
+| `AWS_ROLE_ARN` | `arn:aws:iam::***ACCOUNT-ID***:role/mews-ecr-oidc-github-actions-role` | OIDC role ARN for GitHub Actions |
 
 To add this secret:
 1. Go to your GitHub repository
